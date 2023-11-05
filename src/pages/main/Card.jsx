@@ -1,7 +1,12 @@
 import moment from "moment/moment";
+import { useState } from "react";
 
 const Card = ({ blog }) => {
-    const date = moment(blog?.createdAt).format("MMM Do YY, h:mm a");
+
+    console.log(blog);
+    const date = moment(blog?.createdAt).format('L');
+
+
     return (
         <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
             <img

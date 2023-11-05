@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(false)
+    // const [menu, setMenu] = useState(false)
     return (
         <div>
             <header className="p-4 ">
@@ -40,9 +39,11 @@ const Navbar = () => {
                     </div> */}
 
                     <div className="items-center flex-shrink-0 flex">
-                        <button className="self-center px-8 py-3 rounded text-lightGray">
-                            <Link to='/login'>Sign in</Link>
-                        </button>
+                        <Link to='allProducts'>
+                            <button className="self-center px-8 py-3 rounded text-lightGray">
+                                All Blogs
+                            </button>
+                        </Link>
                         <Link to='/dashboard'>
                             <button className="self-center px-8 py-3 font-semibold rounded bg-buttonBg ">
                                 Dashboard

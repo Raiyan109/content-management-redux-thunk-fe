@@ -7,6 +7,7 @@ import AddProduct from "../pages/dashboard/AddProduct";
 import Home from "../pages/main/Home";
 import Login from "../pages/main/Login";
 import SignUp from "../pages/main/SignUp";
+import AllProducts from "../pages/main/AllProducts";
 
 const routes = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
             {
                 path: 'signUp',
                 element: <SignUp />
+            },
+            {
+                path: 'allProducts',
+                element: <AllProducts />
             },
             {
                 path: 'forgot-password',
