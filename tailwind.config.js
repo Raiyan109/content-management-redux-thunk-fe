@@ -10,6 +10,8 @@ export default {
         background: '#252422',
         textAndImagesColor: '#403d39',
         buttonBg: '#eb5e28',
+        offWhite: '#fffcf2',
+        lightGray: '#ccc5b9'
       }
     },
   },

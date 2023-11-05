@@ -1,5 +1,7 @@
+import moment from "moment/moment";
 
 const Card = ({ blog }) => {
+    const date = moment(blog?.createdAt).format("MMM Do YY, h:mm a");
     return (
         <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
             <img
@@ -10,7 +12,7 @@ const Card = ({ blog }) => {
 
             <div className="border-buttonBg p-4 sm:p-6 shadow-2xl">
                 <time dateTime="2022-10-10" className="block text-xs text-buttonBg">
-                    10th Oct 2022
+                    {date}
                 </time>
 
                 <a href="#">
