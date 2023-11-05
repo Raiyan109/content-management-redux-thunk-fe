@@ -1,25 +1,49 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
+import Main from "../layout/main/Main";
+import Dashboard from "../layout/dashboard/Dashboard";
+import ProductList from "../pages/dashboard/ProductList";
+import AddProduct from "../pages/dashboard/AddProduct";
+import Home from "../pages/main/Home";
+import Login from "../pages/main/Login";
+import SignUp from "../pages/main/SignUp";
 
 const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Home />
+        element: <Main />,
+        children: [
+            {
+                path: '/',
+                element: <Home />
+            },
+            {
+                path: 'login',
+                element: <Login />
+            },
+            {
+                path: 'signUp',
+                element: <SignUp />
+            },
+            {
+                path: 'forgot-password',
+                element: <ForgotPassword />
+            },
+        ],
     },
     {
-        path: '/login',
-        element: <Login />
-    },
-    {
-        path: '/signUp',
-        element: <SignUp />
-    },
-    {
-        path: '/forgot-password',
-        element: <ForgotPassword />
+        path: '/dashboard',
+        element: <Dashboard />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <ProductList />
+            },
+            {
+                path: 'add-product',
+                element: <AddProduct />
+            },
+        ],
     },
 
 ])
