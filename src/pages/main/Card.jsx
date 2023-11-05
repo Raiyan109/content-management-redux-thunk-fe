@@ -4,7 +4,7 @@ const Card = ({ blog }) => {
         <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
             <img
                 alt="Office"
-                src={blog?.img}
+                src={blog?.image}
                 className="h-56 w-full object-cover"
             />
 
@@ -20,7 +20,7 @@ const Card = ({ blog }) => {
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                    {blog?.desc}
+                    {blog?.description}
                 </p>
             </div>
         </article>
