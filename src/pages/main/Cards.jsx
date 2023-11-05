@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { useDispatch, useSelector } from "react-redux";
+import loadBlogData from "../../redux/thunk/blogs/fetchBlogs";
 
 const Cards = () => {
-    const [blogs, setBlogs] = useState([])
+    // const [blogs, setBlogs] = useState([])
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/blogs')
-            .then(res => res.json())
-            .then(data => setBlogs(data))
+        dispatch(loadBlogData())
     }, [])
+
+    const blogs = useSelector((state) => state.blog.blogs)
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mx-auto p-8">
             {
