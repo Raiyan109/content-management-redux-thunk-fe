@@ -1,7 +1,8 @@
-import { CREATE_BLOG, LOAD_BLOGS } from "../actionTypes/blogActionTypes"
+import { ADD_TO_READING_HISTORY, CREATE_BLOG, LOAD_BLOGS } from "../actionTypes/blogActionTypes"
 
 const initialState = {
-    blogs: []
+    blogs: [],
+    readingHistory: [],
 }
 
 const blogReducer = (state = initialState, action) => {
@@ -16,6 +17,14 @@ const blogReducer = (state = initialState, action) => {
                 ...state,
                 blogs: [
                     ...state.blogs,
+                    action.payload
+                ]
+            }
+        case ADD_TO_READING_HISTORY:
+            return {
+                ...state,
+                readingHistory: [
+                    ...state.readingHistory,
                     action.payload
                 ]
             }

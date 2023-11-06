@@ -40,13 +40,18 @@ const Navbar = () => {
 
                     <div className="items-center flex-shrink-0 flex">
                         <Link to='allProducts'>
-                            <button className="self-center px-8 py-3 rounded text-lightGray">
+                            <button className="self-center px-2 py-3 rounded text-lightGray hover:text-offWhite">
                                 All Blogs
                             </button>
                         </Link>
                         <Link to='/dashboard'>
-                            <button className="self-center px-8 py-3 font-semibold rounded bg-buttonBg ">
+                            <button className="self-center px-2 py-3 rounded text-lightGray hover:text-offWhite">
                                 Dashboard
+                            </button>
+                        </Link>
+                        <Link to='readingHistory'>
+                            <button className="self-center px-2 py-3 rounded text-lightGray hover:text-offWhite">
+                                Reading history
                             </button>
                         </Link>
                     </div>

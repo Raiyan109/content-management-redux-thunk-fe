@@ -1,2 +1,3 @@
 export const LOAD_BLOGS = 'LOAD_BLOGS'
 export const CREATE_BLOG = 'CREATE_BLOG'
+export const ADD_TO_READING_HISTORY = 'ADD_TO_READING_HISTORY'

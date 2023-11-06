@@ -1,14 +1,17 @@
 import moment from "moment/moment";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToReadingHistory } from "../../redux/actionCreator/blogActions";
 
 const Card = ({ blog }) => {
-
-    console.log(blog);
-    const date = moment(blog?.createdAt).format('L');
+    const dispatch = useDispatch()
+    const date = moment(blog?.createdAt).format('MMM Do YY, h:mm a');
 
 
     return (
-        <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <article
+            onClick={() => dispatch(addToReadingHistory(blog))}
+            className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
             <img
                 alt="Office"
                 src={blog?.image}

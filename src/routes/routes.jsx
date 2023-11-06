@@ -8,6 +8,7 @@ import Home from "../pages/main/Home";
 import Login from "../pages/main/Login";
 import SignUp from "../pages/main/SignUp";
 import AllProducts from "../pages/main/AllProducts";
+import ReadingHistory from "../pages/main/ReadingHistory";
 
 const routes = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const routes = createBrowserRouter([
             {
                 path: 'allProducts',
                 element: <AllProducts />
+            },
+            {
+                path: 'readingHistory',
+                element: <ReadingHistory />
             },
             {
                 path: 'forgot-password',
