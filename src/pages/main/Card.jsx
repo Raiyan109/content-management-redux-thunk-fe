@@ -1,7 +1,8 @@
 import moment from "moment/moment";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToReadingHistory } from "../../redux/actionCreator/blogActions";
+import { addToReadingHistory, showSingleBlog } from "../../redux/actionCreator/blogActions";
+import { Link } from "react-router-dom";
 
 const Card = ({ blog }) => {
     const dispatch = useDispatch()
@@ -32,6 +33,12 @@ const Card = ({ blog }) => {
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
                     {blog?.description}
                 </p>
+
+                <Link to={`/blog/${blog?._id}`}
+                    onClick={() => dispatch(showSingleBlog(blog))}
+                >
+                    <button className="bg-buttonBg px-3 py-2 text-textAndImagesColor font-semibold rounded-md my-2">Read more</button>
+                </Link>
             </div>
         </article>
     );

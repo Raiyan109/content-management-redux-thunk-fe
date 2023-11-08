@@ -9,6 +9,7 @@ import Login from "../pages/main/Login";
 import SignUp from "../pages/main/SignUp";
 import AllProducts from "../pages/main/AllProducts";
 import ReadingHistory from "../pages/main/ReadingHistory";
+import BlogDetails from "../pages/main/BlogDetails";
 
 const routes = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
             {
                 path: 'readingHistory',
                 element: <ReadingHistory />
+            },
+            {
+                path: 'blog/:blogId',
+                element: <BlogDetails />
             },
             {
                 path: 'forgot-password',
