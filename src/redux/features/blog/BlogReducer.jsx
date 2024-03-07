@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
     blogs: [],
     isLoading: false,
     isError: false,
-    error: ''
+    error: '',
+    postSuccess: false
 }
 
 export const fetchBlogs = createAsyncThunk('blogs/getBlogs', async (name, { rejectWithValue }) => {
@@ -15,6 +17,13 @@ export const fetchBlogs = createAsyncThunk('blogs/getBlogs', async (name, { reje
     }
     return data
 })
+
+export const addBlog = createAsyncThunk('blogs/addBlog', async (data) => {
+    const blogs = await axios.post(`http://localhost:5000/api/v1/blogs/create`, data)
+    return blogs
+})
+
+
 
 export const blogSlice = createSlice({
     name: 'blogs',
@@ -31,6 +40,22 @@ export const blogSlice = createSlice({
                 state.isLoading = false
         })
         builder.addCase(fetchBlogs.rejected, (state) => {
+            state.blogs = [],
+                state.isError = true,
+                state.isLoading = false
+        })
+        builder.addCase(addBlog.pending, (state) => {
+            state.isLoading = true,
+                state.isError = false
+            state.postSuccess = false
+        })
+        builder.addCase(addBlog.fulfilled, (state, action) => {
+            state.blogs = action.payload,
+                state.isError = false,
+                state.isLoading = false
+            state.postSuccess = true
+        })
+        builder.addCase(addBlog.rejected, (state) => {
             state.blogs = [],
                 state.isError = true,
                 state.isLoading = false

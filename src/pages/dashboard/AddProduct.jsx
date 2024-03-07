@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import createBlogData from "../../redux/thunk/blogs/createBlogData";
+import { useDispatch, useSelector } from "react-redux";
+import { addBlog } from "../../redux/features/blog/BlogReducer";
+import { useEffect } from "react";
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
+    // eslint-disable-next-line no-unused-vars
+    const { blogs, isLoading, isError, postSuccess } = useSelector((state) => state)
 
     const submit = (data) => {
         const blog = {
@@ -13,8 +16,20 @@ const AddProduct = () => {
             image: data.image,
         }
         console.log(blog);
-        dispatch(createBlogData(blog))
+        dispatch(addBlog(blog))
     }
+
+    useEffect(() => {
+        if (isLoading) {
+            alert('Posting...')
+        }
+        if (!isLoading && postSuccess) {
+            alert('Blog added...')
+        }
+        if (!isLoading && isError) {
+            alert('error...')
+        }
+    }, [isError, isLoading, postSuccess])
     return (
         <div className="p-9">
             <div className="bg-offWhite rounded shadow-lg p-12 mt-12 flex justify-center items-center">
